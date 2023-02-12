@@ -1,0 +1,106 @@
+<mat-grid-list cols="4" rowHeight="100px">
+  <mat-grid-tile colspan="2">
+    <mat-card>
+      <mat-card-content>List Resets: {{ queue.listresets }}</mat-card-content>
+    </mat-card>
+  </mat-grid-tile>
+  <mat-grid-tile colspan="2">
+    <mat-card>
+      <mat-card-content
+        >Queue for Week Ending: {{ queue.date }}</mat-card-content
+      >
+    </mat-card>
+  </mat-grid-tile>
+  <mat-grid-tile colspan="4"
+    ><mat-card>
+      <mat-card-content
+        ><a href="https://www.twitch.tv/taklyfe" target="_blank">
+          <img href="https://www.twitch.tv/taklyfe" src="../../assets/twitchpng.png" />
+        </a>
+        <a href="https://www.instagram.com/joseph_micallef2010/" target="_blank">
+          <img src="../../assets/insta.png" />
+        </a>
+        <a href="https://twitter.com/taklyfe" target="_blank">
+          <img src="../../assets/twitter.png" />
+        </a>
+        <a href="https://streamlabs.com/taklyfe/tip" target="_blank">
+          <img src="../../assets/donate.png" />
+        </a>
+        <a href="https://discord.gg/Hu4vaZd" target="_blank">
+          <img style="width: auto;" src="../../assets/discord.png" />
+        </a>
+        <a href="https://www.worldofwarcraft.com/invite/4DxJP4phOWE?region=US&faction=Alliance" target="_blank">
+          <img src="../../assets/wow.png" />
+        </a>
+      </mat-card-content></mat-card
+    ></mat-grid-tile
+  >
+
+  <mat-grid-tile colspan="4" rowspan="2">
+    <mat-card>
+      <mat-card-content
+        ><h2>Rules</h2>
+        <ul>
+          <li>
+            1 Run per week (Unless you have a second run or there is a list
+            reset)
+          </li>
+          <li>
+            If you are unfamiliar with mechanics, let me know so I can help walk
+            you through it
+          </li>
+          <li>
+            Being AFK when your name is called will result in forfiting your
+            turn for the week
+          </li>
+          <li>Have fun and be respectful to all members of the community</li>
+        </ul>
+      </mat-card-content>
+    </mat-card>
+  </mat-grid-tile>
+  <mat-grid-tile colspan="4" rowspan="2">
+    <mat-card>
+      <mat-card-content
+        ><h2>How does this work</h2>
+        <ul>
+          <li>1 Run per week (Unless you have a second run)</li>
+          <li>The !join command will add you to the list</li>
+          <li>
+            Using !unjoin or !unqueue will remove you from the queue (Do this if
+            you joined then realise you will not be around)
+          </li>
+          <li>
+            You can use !2nd or !2ndrun to see how many second runs you have
+          </li>
+          <li>
+            You can use !ql or !queuelength to see how many people are in the
+            queue
+          </li>
+        </ul>
+      </mat-card-content>
+    </mat-card>
+  </mat-grid-tile>
+  <mat-grid-tile colspan="4" rowspan="4">
+    <table mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8">
+      <ng-container matColumnDef="twitchUsername">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>
+          Twitch Username
+        </th>
+        <td mat-cell *matCellDef="let element">{{ element.twitchUsername }}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="status">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Status</th>
+        <td mat-cell *matCellDef="let element">{{ element.status }}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="dateadded">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Date Added</th>
+        <td mat-cell *matCellDef="let element">{{ element.timeUpdated }}</td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+    </table>
+  </mat-grid-tile>
+</mat-grid-list>

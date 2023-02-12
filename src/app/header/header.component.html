@@ -1,0 +1,45 @@
+<mat-toolbar color="primary">
+  <span><a routerLink="/">Home</a></span>
+
+  <span class="queuestatus"><a *ngIf="!queueIsOpen">Queue Status: CLOSED</a>
+    <a *ngIf="queueIsOpen">Queue Status: OPEN</a></span>
+  <span class="spacer"></span>
+  <!-- <ul>
+    <li>
+      <a *ngIf="!queueIsOpen">Queue Status: CLOSED</a>
+    </li>
+  </ul>
+  <ul *ngIf="queueIsOpen">
+    <li>
+      <a>Queue Status: OPEN</a>
+    </li>
+  </ul> -->
+  <ul *ngIf="userIsAuthenticated">
+    <li>
+      <a mat-button routerLink="/create" routerLinkActive="mat-accent"
+        >New Post</a
+      >
+    </li>
+  </ul>
+  <ul *ngIf="!userIsAuthenticated">
+    <li>
+      <a mat-button href="https://id.twitch.tv/oauth2/authorize?[parameters]"
+        >Connect with Twitch</a
+      >
+      <a mat-button routerLink="/auth/login" routerLinkActive="mat-accent"
+        >Login</a
+      >
+    </li>
+  </ul>
+  <ul *ngIf="!userIsAuthenticated">
+    <li>
+      <a mat-button routerLink="/auth/signup" routerLinkActive="mat-accent"
+        >Sign Up</a
+      >
+    </li>
+  </ul>
+  <ul *ngIf="userIsAuthenticated">
+    <!-- <button mat-button (click)="onLogout()">Logout</button> -->
+    <button mat-button>Logout</button>
+  </ul>
+</mat-toolbar>

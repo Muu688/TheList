@@ -1,0 +1,46 @@
+table {
+  width: 80%;
+  margin: auto;
+}
+h2 {
+  color: white;
+}
+
+th.mat-sort-header-sorted {
+  color: black;
+  font-size: 50px;
+}
+
+.mat-header-cell{
+  font-size: 125%;
+}
+
+.mat-card {
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}
+
+a {
+  font-size: large;
+  color: rgb(255, 255, 255);
+}
+
+mat-grid-list {
+  width: 50%;
+  margin: auto;
+}
+
+img {
+  width: 25px;
+  height: 25px;
+  margin-left: 10px;
+  margin-right: 10px;
+  padding: auto;
+}
+
+body {
+  color:rgb(63, 63, 63);
+  background-color: rgb(63, 63, 63);;
+}
