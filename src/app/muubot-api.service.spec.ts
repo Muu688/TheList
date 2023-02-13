@@ -1,13 +1,13 @@
 import { TestBed } from '@angular/core/testing';
 
-import { QueueAPIService } from './queue-api.service';
+import { MuuBotAPIService } from './muubot-api.service';
 
 describe('QueueAPIService', () => {
-  let service: QueueAPIService;
+  let service: MuuBotAPIService;
 
   beforeEach(() => {
     TestBed.configureTestingModule({});
-    service = TestBed.inject(QueueAPIService);
+    service = TestBed.inject(MuuBotAPIService);
   });
 
   it('should be created', () => {

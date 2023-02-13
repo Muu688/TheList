@@ -4,15 +4,15 @@ import { Queue, QueuedUser } from '../queue';
 import { MatSort } from '@angular/material/sort';
 import { MatGridList } from '@angular/material/grid-list';
 import { MatGridTile } from '@angular/material/grid-list';
-import { QueueAPIService } from '../queue-api.service';
+import { MuuBotAPIService } from '../muubot-api.service';
 import { AngularMaterialModule } from "../angular-material.module";
 
 @Component({
-  selector: 'app-heroes',
-  templateUrl: './heroes.component.html',
-  styleUrls: ['./heroes.component.css']
+  selector: 'queue',
+  templateUrl: './queue.component.html',
+  styleUrls: ['./queue.component.css']
 })
-export class HeroesComponent implements OnInit {
+export class QueueComponent implements OnInit {
 
   queueData = null;
   queue = null;
@@ -22,7 +22,7 @@ export class HeroesComponent implements OnInit {
 
   @ViewChild(MatSort) sort: MatSort;
 
-  constructor(private queueAPI: QueueAPIService) { }
+  constructor(private muubotAPI: MuuBotAPIService) { }
 
   tiles: Tile[] = [
     { cols: 3, rows: 1, color: 'lightblue' },
@@ -38,7 +38,7 @@ export class HeroesComponent implements OnInit {
   }
 
   updateData(): void {
-    this.queueAPI.getQueue().subscribe(data => {
+    this.muubotAPI.getQueue().subscribe(data => {
       this.queueData = data;
       this.queue = this.queueData.queue;
       this.dataSource = new MatTableDataSource(this.queueData.queue.users);

@@ -1,1 +1,37 @@
-<p>userview works!</p>
+<mat-grid-list cols="4" rowHeight="100px">
+  <mat-grid-tile colspan="4">
+    <form (submit)="getUserData(username)">
+      <mat-form-field>
+        <input
+          matInput
+          type="text"
+          [(ngModel)]="username"
+          name="username"
+          placeholder="Twitch Username"
+        />
+      </mat-form-field>
+      <p>test</p>
+      <input type="submit" value="Search">
+    </form>
+  </mat-grid-tile>
+  <mat-grid-tile *ngIf="userData.twitchUsername" colspan="2">
+    <mat-card>
+      <mat-card-content
+        >Data for :{{ userData.twitchUsername }}</mat-card-content
+      >
+    </mat-card>
+  </mat-grid-tile>
+  <mat-grid-tile *ngIf="userData.secondRunCount" colspan="2">
+    <mat-card>
+      <mat-card-content
+        >Second Run(s) available:
+        {{ userData.secondRunCount }}</mat-card-content
+      >
+    </mat-card>
+  </mat-grid-tile>
+  <mat-grid-tile *ngIf="runHistory[0] !== undefined" colspan="4">
+    <mat-card>
+      <mat-card-content>Run History is Displayed Here</mat-card-content>
+    </mat-card>
+  </mat-grid-tile>
+</mat-grid-list>
